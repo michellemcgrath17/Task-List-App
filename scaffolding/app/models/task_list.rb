@@ -3,4 +3,6 @@ class TaskList < ActiveRecord::Base
   def to_s
     name
   end
+  validates :name, :description, presence: true
+  validates :name, uniqueness: true
 end

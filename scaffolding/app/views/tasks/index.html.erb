@@ -32,6 +32,32 @@
   </tbody>
 </table>
 
-<br>
+<h3> Recently Completed Tasks </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Priority</th>
+      <th>Due date</th>
+      <th>Is completed</th>
+      <th>Task list</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @completed_tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.is_completed %></td>
+        <td><%= task.task_list %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'New Task', new_task_path %>

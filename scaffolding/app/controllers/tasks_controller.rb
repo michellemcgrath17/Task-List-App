@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.pending
+    @completed_tasks = Task.completed.limit(5)
   end
 
   # GET /tasks/1
@@ -69,6 +70,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :priority, :due_date, :is_completed, :task_list_id)
+      params.require(:task).permit(:title, :description, :priority, :due_date, :is_completed, :task_list_id, :is_private)
     end
 end
