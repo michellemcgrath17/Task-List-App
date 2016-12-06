@@ -17,7 +17,15 @@
     <%= render "layouts/sidebar" %>
   </div>
 
+
 <div class="main">
+
+  <div id="primary">
+    <% if flash[:message] %>
+      <p class="flash-message"><%= flash[:message] %></p>
+   <% end %>
+  </div>
+
   <%= yield %>
 </div>
 
@@ -26,6 +34,12 @@
 <footer>
   <p>
     This is a site for all of the lists that I created. And this information is in the footer.
+    <br>
+    <% if session[:user_id] %>
+      <%= link_to 'Logout', logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %>
+    <% end %>
   </p>
 </footer>
 

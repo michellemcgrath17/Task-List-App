@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :task_list
+  belongs_to :user
 
 scope :completed, -> {where(is_completed: true).order("updated_at desc")}
 scope :pending, -> {where(is_completed: false).order("updated_at asc")}
